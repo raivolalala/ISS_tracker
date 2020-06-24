@@ -1,0 +1,4 @@
+pyodbc
+urllib.request
+json
+
