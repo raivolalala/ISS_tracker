@@ -4,8 +4,9 @@ import pyodbc
 import urllib.request
 import json
 
-# tracking part
 def main():
+
+    # tracking part
     req = urllib.request.Request("http://api.open-notify.org/iss-now.json")
     response = urllib.request.urlopen(req)
 
