@@ -3,6 +3,7 @@
 import pyodbc
 import urllib.request
 import json
+from datetime import datetime
 
 def main():
 
@@ -12,6 +13,7 @@ def main():
 
     obj = json.loads(response.read())
     timestamp = obj['timestamp']
+    #timestamp = datetime.now()
     latitude = obj['iss_position']['latitude']
     longitude = obj['iss_position']['longitude']
     
@@ -27,3 +29,5 @@ def main():
     cursor = cnxn.cursor()
     cursor.execute("INSERT INTO dbo.f_iss_coordinates VALUES(?, ?, ?);", (timestamp, latitude, longitude))
     cnxn.commit()
+
+main()
